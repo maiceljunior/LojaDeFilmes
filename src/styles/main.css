@@ -15,9 +15,32 @@
 }
 
 @layer base {
+  /* Comportamento de app no celular: sem zoom, sem "puxar" a tela, sem flash ao tocar */
   html {
     color-scheme: dark;
     -webkit-tap-highlight-color: transparent;
+    touch-action: pan-x pan-y;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overscroll-behavior-y: none;
+  }
+
+  /* Sem menu de "segurar" em imagens e links no iPhone */
+  a,
+  img,
+  button {
+    -webkit-touch-callout: none;
+  }
+
+  img {
+    -webkit-user-drag: none;
+  }
+
+  /* Campos com fonte menor que 16px fazem o iPhone dar zoom ao focar */
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1em);
   }
 
   body {

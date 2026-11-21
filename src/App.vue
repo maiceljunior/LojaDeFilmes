@@ -2,6 +2,16 @@
 import SideDrawer from "@/components/cart/SideDrawer.vue";
 import AppHeader from "@/components/layout/AppHeader.vue";
 import ToastStack from "@/components/layout/ToastStack.vue";
+import { useOnline } from "@vueuse/core";
+import { watch } from "vue";
+import { useUiStore } from "@/stores/ui";
+
+// A loja é só online: avisa quando a conexão cai e quando volta.
+const online = useOnline();
+const ui = useUiStore();
+watch(online, (isOnline) => {
+  ui.notify(isOnline ? "Conexão de volta!" : "Sem internet: os filmes voltam quando a conexão voltar.", isOnline ? "success" : "error");
+});
 </script>
 
 <template>

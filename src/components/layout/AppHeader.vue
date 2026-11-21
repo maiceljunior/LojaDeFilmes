@@ -5,6 +5,7 @@ import AppIcon from "@/components/ui/AppIcon.vue";
 import { useCartStore } from "@/stores/cart";
 import { useFavoritesStore } from "@/stores/favorites";
 import { useUiStore } from "@/stores/ui";
+import InstallButton from "./InstallButton.vue";
 import SearchBar from "./SearchBar.vue";
 
 const cart = useCartStore();
@@ -30,6 +31,7 @@ const scrolled = computed(() => y.value > 24);
       </div>
 
       <nav class="flex shrink-0 items-center gap-1">
+        <InstallButton />
         <button
           type="button"
           class="relative grid size-11 place-items-center rounded-full text-white/85 transition hover:bg-white/10 hover:text-white"
