@@ -27,3 +27,9 @@ coverage
 *.sln
 *.sw?
 .vercel
+
+# Ambiente e ferramentas locais
+.env
+.claude/
+CLAUDE.md
+AGENTS.md
